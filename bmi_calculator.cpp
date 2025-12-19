@@ -1,3 +1,10 @@
+ * CS101 Final Exam - File 2: bmi_calculator.cpp
+ * The Logic Test: Sorting an Array
+ *
+ * Student Name: _samuel_reyes_
+ * Date: _______12/_18_/_2025__
+
+
 // <iostream> is a standard library in c++ lenguage that lets us use input/output objects
 #include <iostream>
 using namespace std;
@@ -24,4 +31,5 @@ int main() {
     cout << "Your BMI is: " << bmi << endl;
 
     return 0;
+
 }
