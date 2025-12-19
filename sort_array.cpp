@@ -1,75 +1,72 @@
-/*
- * CS101 Final Exam - File 1: sort_array.cpp
- * The Logic Test: Sorting an Array
- *
- * Student Name: ________________________
- * Date: ________________________
- *
- * OBJECTIVE:
- * Write a program that sorts an array of 100 integers in ascending order.
- *
- * REQUIREMENTS:
- * 1. Use the provided array 'numbers' containing integers 1-100 in random order
- * 2. Implement a sorting algorithm (Bubble Sort is recommended for simplicity)
- * 3. Display the array before and after sorting (at least the first 10-20 elements)
- *
- * HINTS:
- * - You'll need a nested loop (a loop inside another loop)
- * - You'll need to swap two elements when they're in the wrong order
- * - To swap: temp = a; a = b; b = temp;
- *
- * GRADING FOCUS:
- * - Do you understand the sorting logic?
- * - Can you use nested loops correctly?
- * - Does your swap mechanism work?
- */
+
+ //* CS101 Final Exam - File 1: sort_array.cpp
+ // The Logic Test: Sorting an Array
+//
+// Student Name: __Samuel Reyes_____
+// * Date: _12 18 2025
 
 #include <iostream>
 using namespace std;
 
 int main()
 {
-  // An unsorted array of numbers 1-100 for you to sort
-  int numbers[100] = {
-      63, 12, 89, 45, 23, 78, 34, 91, 56, 7,
-      82, 29, 67, 14, 95, 41, 18, 73, 50, 36,
-      98, 5, 61, 27, 84, 48, 10, 75, 32, 69,
-      21, 58, 93, 15, 80, 44, 3, 70, 37, 96,
-      52, 19, 86, 31, 65, 9, 77, 42, 24, 88,
-      54, 1, 71, 39, 94, 25, 81, 47, 13, 68,
-      35, 99, 59, 22, 85, 46, 11, 74, 30, 97,
-      51, 6, 72, 38, 92, 26, 83, 49, 16, 66,
-      33, 100, 57, 20, 87, 43, 8, 76, 40, 62,
-      28, 90, 55, 17, 79, 4, 64, 2, 53, 60};
+    //array provided by prof.clearly unordered as expected ;]
+    int numbers[100] = {
+        63, 12, 89, 45, 23, 78, 34, 91, 56, 7,
+        82, 29, 67, 14, 95, 41, 18, 73, 50, 36,
+        98, 5, 61, 27, 84, 48, 10, 75, 32, 69,
+        21, 58, 93, 15, 80, 44, 3, 70, 37, 96,
+        52, 19, 86, 31, 65, 9, 77, 42, 24, 88,
+        54, 1, 71, 39, 94, 25, 81, 47, 13, 68,
+        35, 99, 59, 22, 85, 46, 11, 74, 30, 97,
+        51, 6, 72, 38, 92, 26, 83, 49, 16, 66,
+        33, 100, 57, 20, 87, 43, 8, 76, 40, 62,
+        28, 90, 55, 17, 79, 4, 64, 2, 53, 60
+    };
 
-  // TODO: Display the array BEFORE sorting
-  cout << "Array before sorting:" << endl;
-  // Hint: Use a loop to print the first 10-20 elements from the numbers array
-  // Example approach: for(int i = 0; i < 10; i++) { cout << numbers[i] << " "; }
+    // we are displaying to show that the array is unorganized
+    
+    cout << "Array before sorting:" << endl;
+    //using a for loop we initialize a var "i" equal to cero because the array's start at 0 
+    //than we will state the condition which is for i less than 20;
+    // increase (i++) 1 by 1 untill i greater  than 20 but not equal to 20
+    for (int i = 0; i < 20; i++)
+    {
+        //the loop will be printed untill i reaches 20 units of the array
+        // it will print the numbers shown in the unorganized array, the first 20 spaces of it
+        cout << numbers[i] << " ";
+    }
 
-  // TODO: Implement your sorting algorithm here
-  // BUBBLE SORT APPROACH:
-  // - Outer loop: goes through the array multiple times (think: how many passes do you need?)
-  // - Inner loop: compares adjacent elements (compare each pair in the array)
-  // - If elements are in wrong order, swap them
-  //
-  // THINK ABOUT:
-  // - What condition determines if two numbers are in the "wrong order"?
-  // - How do you compare element at position j with element at position j+1?
-  // - What three steps are needed to swap two values? (Hint: you need a temporary variable)
-  //
-  // STRUCTURE HINT:
-  // for(outer loop - controls how many times we pass through) {
-  //     for(inner loop - goes through comparing adjacent pairs) {
-  //         if(need to swap?) {
-  //             // perform the swap using a temp variable
-  //         }
-  //     }
-  // }
+    // Bubble Sort
+    //external loop, this declares the amount of time that the loop will be sorted 
+    for (int i = 0; i < 100; i++)
+    {
+        //internal loop it compares pairs "j & j+1"
+        //limited to 99 because the array starts at index 0 so its always 100-1
+        for (int j = 0; j < 99; j++)
+        {
+            //if is the condition saying if no. j are bigger than no. j+1 
+            //they are in the wrong order
+            if (numbers[j] > numbers[j + 1])
+            {
+                //than we declare a new temporary var "temp" which will equal numbers[j] if they 
+                //meet the condition j > j+1 and save that value temporary
+                int temp = numbers[j];
+                //than the new numbers[j] will equal numbers[j+1]
+                numbers[j] = numbers[j + 1];
+                //and j+1 will be the new "temp" this will be repeated 100 times by the external loop
+                //and internally organize from 0 to 99
+                numbers[j + 1] = temp;
+            }
+        }
+    }
 
-  // TODO: Display the array AFTER sorting
-  cout << "\nArray after sorting:" << endl;
-  // Hint: Print the first 10-20 elements to verify they're now in order (should be 1, 2, 3, ...)
+    // Display AFTER sorting
+    cout << "\n\nArray after sorting:" << endl;
+    for (int i = 0; i < 20; i++)
+    {
+        cout << numbers[i] << " ";
+    }
 
-  return 0;
+    return 0;
 }
